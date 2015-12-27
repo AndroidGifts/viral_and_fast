@@ -1,0 +1,628 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-06 15:42:43 +0200
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `connect'
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (180.1ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (40.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (143.1ms)
+
+
+Started GET "/" for ::1 at 2015-10-06 15:44:59 +0200
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `connect'
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (25.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (49.0ms)
+
+
+Started GET "/" for ::1 at 2015-10-06 15:45:05 +0200
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `connect'
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (22.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (46.0ms)
+
+
+Started GET "/" for ::1 at 2015-10-06 15:46:26 +0200
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `connect'
+  mysql2-0.3.20-x64 (mingw32) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  C:/Ruby21-x64/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby21-x64/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (21.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (49.0ms)
+
+
+Started GET "/" for ::1 at 2015-10-06 15:47:20 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-10-06 16:22:01 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendered C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (572.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (714.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePosts (20151006152750)
+  [1m[35m (335.2ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `editor_id` int(11), `title` text, `permalink` varchar(255), `content` text, `image` varchar(255), `excerpt` text, `visible` tinyint(1) DEFAULT 1, `type` varchar(255), `likes_count` int(11), `comment_count` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (153.1ms)[0m  [1mCREATE  INDEX `index_posts_on_editor_id`  ON `posts` (`editor_id`) [0m
+  [1m[35m (228.1ms)[0m  CREATE  INDEX `index_posts_on_permalink`  ON `posts` (`permalink`) 
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006152750')
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEditors (20151006152854)
+  [1m[35m (250.2ms)[0m  CREATE TABLE `editors` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `username` varchar(255), `password` varchar(255), `active_user` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006152854')
+  [1m[36m (19.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20151006152950)
+  [1m[35m (417.3ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `post_id` int(11), `editor_id` int(11), `content` text, `approved` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (260.2ms)[0m  [1mCREATE  INDEX `index_comments_on_post_id`  ON `comments` (`post_id`) [0m
+  [1m[35m (186.1ms)[0m  CREATE  INDEX `index_comments_on_editor_id`  ON `comments` (`editor_id`) 
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006152950')
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20151006153011)
+  [1m[35m (229.2ms)[0m  CREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `image` varchar(255), `post_count` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006153011')
+  [1m[36m (18.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `categories`
+  [1m[36m (0.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (1.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'editors'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `editors`
+  [1m[36m (0.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'posts'
+[0m
+  [1m[35m (1.0ms)[0m  SHOW CREATE TABLE `posts`
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT `posts`.* FROM `posts`[0m
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `posts` (`title`, `content`, `created_at`, `updated_at`) VALUES ('First Post', 'Post Content', '2015-10-06 16:11:49', '2015-10-06 16:11:49')
+  [1m[36m (38.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (22.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `editors` (`first_name`, `created_at`, `updated_at`) VALUES ('ferry', '2015-10-06 16:13:47', '2015-10-06 16:13:47')
+  [1m[36m (71.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE `posts` SET `editor_id` = 1, `updated_at` = '2015-10-06 16:15:17' WHERE `posts`.`id` = 1[0m
+  [1m[35m (80.1ms)[0m  COMMIT
+  [1m[36mSQL (56.0ms)[0m  [1mDELETE FROM `editors` WHERE `editors`.`id` = 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 1[0m
+  [1m[35m (88.1ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCategoriesEditorsJoin (20151006162502)
+  [1m[35m (276.2ms)[0m  CREATE TABLE `categories_editors` (`category_id` int(11), `editor_id` int(11)) ENGINE=InnoDB
+  [1m[36m (274.2ms)[0m  [1mCREATE  INDEX `index_categories_editors_on_category_id_and_editor_id`  ON `categories_editors` (`category_id`, `editor_id`) [0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20151006162502')[0m
+  [1m[35m (25.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `categories`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories_editors'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `categories_editors`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'comments'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `comments`[0m
+  [1m[35m (1.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'editors'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `editors`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'posts'
+
+  [1m[36m (1.0ms)[0m  [1mSHOW CREATE TABLE `posts`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCategoriesPostsJoin (20151006163032)
+  [1m[35m (473.3ms)[0m  CREATE TABLE `categories_posts` (`id` int(11) auto_increment PRIMARY KEY, `category_id` int(11), `post_id` int(11)) ENGINE=InnoDB
+  [1m[36m (325.3ms)[0m  [1mCREATE  INDEX `index_categories_posts_on_category_id_and_post_id`  ON `categories_posts` (`category_id`, `post_id`) [0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20151006163032')[0m
+  [1m[35m (25.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories'
+
+  [1m[36m (1.0ms)[0m  [1mSHOW CREATE TABLE `categories`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories_editors'
+
+  [1m[36m (1.0ms)[0m  [1mSHOW CREATE TABLE `categories_editors`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories_posts'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `categories_posts`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'comments'
+
+  [1m[36m (1.0ms)[0m  [1mSHOW CREATE TABLE `comments`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'editors'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `editors`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'posts'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `posts`[0m
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (13.0ms)[0m  INSERT INTO `editors` (`first_name`, `created_at`, `updated_at`) VALUES ('ferry', '2015-10-06 16:33:40', '2015-10-06 16:33:40')
+  [1m[36m (40.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `categories` (`name`, `created_at`, `updated_at`) VALUES ('ACTION', '2015-10-06 16:34:22', '2015-10-06 16:34:22')[0m
+  [1m[35m (26.0ms)[0m  COMMIT
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT `categories`.* FROM `categories` INNER JOIN `categories_editors` ON `categories`.`id` = `categories_editors`.`category_id` WHERE `categories_editors`.`editor_id` = 2[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `categories_editors` (`editor_id`, `category_id`) VALUES (2, 1)[0m
+  [1m[35m (71.0ms)[0m  COMMIT
+  [1m[36mEditor Load (0.0ms)[0m  [1mSELECT `editors`.* FROM `editors` INNER JOIN `categories_editors` ON `editors`.`id` = `categories_editors`.`editor_id` WHERE `categories_editors`.`category_id` = 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO `editors` (`first_name`, `created_at`, `updated_at`) VALUES ('Basem', '2015-10-06 16:36:33', '2015-10-06 16:36:33')[0m
+  [1m[35m (233.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `categories_editors` (`editor_id`, `category_id`) VALUES (3, 1)
+  [1m[36m (102.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT `categories`.* FROM `categories` INNER JOIN `categories_editors` ON `categories`.`id` = `categories_editors`.`category_id` WHERE `categories_editors`.`editor_id` = 3
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT `categories`.* FROM `categories`[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1
+  [1m[36mEditor Load (63.0ms)[0m  [1mSELECT `editors`.* FROM `editors` INNER JOIN `categories_editors` ON `editors`.`id` = `categories_editors`.`editor_id` WHERE `categories_editors`.`category_id` = 1[0m
+  [1m[36m (477.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (891.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePosts (20151006152750)
+  [1m[35m (327.9ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `editor_id` int(11), `title` text, `permalink` varchar(255), `content` text, `image` varchar(255), `excerpt` text, `visible` tinyint(1) DEFAULT 1, `type` varchar(255), `likes_count` int(11), `comment_count` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (198.8ms)[0m  [1mCREATE  INDEX `index_posts_on_editor_id`  ON `posts` (`editor_id`) [0m
+  [1m[35m (175.8ms)[0m  CREATE  INDEX `index_posts_on_permalink`  ON `posts` (`permalink`) 
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (45.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006152750')
+  [1m[36m (62.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEditors (20151006152854)
+  [1m[35m (297.0ms)[0m  CREATE TABLE `editors` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `username` varchar(255), `password` varchar(255), `active_user` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006152854')
+  [1m[36m (30.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20151006152950)
+  [1m[35m (260.5ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `post_id` int(11), `editor_id` int(11), `content` text, `approved` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (237.1ms)[0m  [1mCREATE  INDEX `index_comments_on_post_id`  ON `comments` (`post_id`) [0m
+  [1m[35m (270.3ms)[0m  CREATE  INDEX `index_comments_on_editor_id`  ON `comments` (`editor_id`) 
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006152950')
+  [1m[36m (31.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20151006153011)
+  [1m[35m (285.5ms)[0m  CREATE TABLE `categories` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `image` varchar(255), `post_count` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006153011')
+  [1m[36m (30.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategoriesEditorsJoin (20151006162502)
+  [1m[35m (403.5ms)[0m  CREATE TABLE `categories_editors` (`category_id` int(11), `editor_id` int(11)) ENGINE=InnoDB
+  [1m[36m (235.3ms)[0m  [1mCREATE  INDEX `index_categories_editors_on_category_id_and_editor_id`  ON `categories_editors` (`category_id`, `editor_id`) [0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20151006162502')[0m
+  [1m[35m (32.0ms)[0m  COMMIT
+Migrating to CreateCategoriesPostsJoin (20151006163032)
+  [1m[36m (305.9ms)[0m  [1mCREATE TABLE `categories_posts` (`category_id` int(11), `post_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (214.9ms)[0m  CREATE  INDEX `index_categories_posts_on_category_id_and_post_id`  ON `categories_posts` (`category_id`, `post_id`) 
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151006163032')
+  [1m[36m (44.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (12.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (42.8ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `categories`
+  [1m[36m (1.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories_editors'
+[0m
+  [1m[35m (1.0ms)[0m  SHOW CREATE TABLE `categories_editors`
+  [1m[36m (1.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'categories_posts'
+[0m
+  [1m[35m (1.0ms)[0m  SHOW CREATE TABLE `categories_posts`
+  [1m[36m (0.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'comments'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `comments`
+  [1m[36m (1.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'editors'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `editors`
+  [1m[36m (1.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'viral_and_fast_development'
+  AND fk.table_name = 'posts'
+[0m
+  [1m[35m (1.0ms)[0m  SHOW CREATE TABLE `posts`
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (67.8ms)[0m  INSERT INTO `editors` (`first_name`, `created_at`, `updated_at`) VALUES ('ferry', '2015-12-27 00:26:32', '2015-12-27 00:26:32')
+  [1m[36m (25.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (53.3ms)[0m  [1mINSERT INTO `posts` (`title`, `created_at`, `updated_at`) VALUES ('first post', '2015-12-27 00:26:41', '2015-12-27 00:26:41')[0m
+  [1m[35m (40.3ms)[0m  COMMIT
+  [1m[36mPost Load (59.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`editor_id` = 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1
+  [1m[36mEditor Load (23.3ms)[0m  [1mSELECT  `editors`.* FROM `editors` WHERE `editors`.`id` = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT  `posts`.* FROM `posts`  ORDER BY `posts`.`id` ASC LIMIT 1
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`editor_id` = 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (26.0ms)[0m  [1mUPDATE `posts` SET `editor_id` = 1, `updated_at` = '2015-12-27 00:31:26' WHERE `posts`.`id` = 1[0m
+  [1m[35m (118.1ms)[0m  COMMIT
