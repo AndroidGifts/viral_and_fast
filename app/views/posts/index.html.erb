@@ -1,8 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-
 <% @posts.each do |post| %>
 	
-	<%= link_to(post.title, {:action => 'show', :id => post.id}) %>
+	<%= link_to("Post title: " + post.title, {:action => 'show', :id => post.id}) %>
+
+	<h3>Post Content: <%= post.content %></h3>
+	<h3>Post Image: <%= post.image %></h3>
+	<h3>Post Likes count: <%= post.likes_count %></h3>
+	<h3>Post Comments count:  <%= post.comment_count %></h3>
+	<h3>Category: <%= link_to(post.categories.first.name , {:controller => 'categories', :action => 'show', :id => post.categories.first.id}) %></h3>
+	<h3>Author: <%= link_to(post.editor.first_name, {:controller => 'editors', :action => 'show', :id => post.editor.id}) %></h3>
 
 <% end %>
