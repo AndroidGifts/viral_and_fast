@@ -11,11 +11,17 @@ class PostsController < ApplicationController
   end
 
   def new
-    @new_post = Post.new()
+    @new_post = Post.new({:likes_count => 0, :comment_count => 0, :type => nil})
   end
 
   def create
-    
+    @new_post = Post.new(post_params)
+
+    if @new_post.save
+      redirect_to(:action => 'index')
+    else
+      render('new')
+    end
   end
 
   def edit
@@ -27,4 +33,10 @@ class PostsController < ApplicationController
 
   def delete
   end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :content, :image)
+  end
+
 end

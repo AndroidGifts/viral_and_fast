@@ -1,2 +1,8 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Add New Post</h1>
+
+<%= form_for(:post, :url => {:action => 'create'}, html: { multipart: true }) do |form| %>
+	<%= form.text_field :title %>
+	<%= form.text_field :content %>
+	<%= form.file_field :image %>
+	<%= form.submit %>
+<% end %>

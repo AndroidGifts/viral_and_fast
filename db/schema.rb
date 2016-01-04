@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006163032) do
+ActiveRecord::Schema.define(version: 20160104080140) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -60,18 +60,21 @@ ActiveRecord::Schema.define(version: 20151006163032) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "editor_id",     limit: 4
-    t.text     "title",         limit: 65535
-    t.string   "permalink",     limit: 255
-    t.text     "content",       limit: 65535
-    t.string   "image",         limit: 255
-    t.text     "excerpt",       limit: 65535
-    t.boolean  "visible",                     default: true
-    t.string   "type",          limit: 255
-    t.integer  "likes_count",   limit: 4
-    t.integer  "comment_count", limit: 4
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.integer  "editor_id",          limit: 4
+    t.text     "title",              limit: 65535
+    t.string   "permalink",          limit: 255
+    t.text     "content",            limit: 65535
+    t.text     "excerpt",            limit: 65535
+    t.boolean  "visible",                          default: true
+    t.string   "type",               limit: 255
+    t.integer  "likes_count",        limit: 4
+    t.integer  "comment_count",      limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "posts", ["editor_id"], name: "index_posts_on_editor_id", using: :btree
