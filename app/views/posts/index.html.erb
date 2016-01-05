@@ -1,25 +1,45 @@
-<% @posts.each do |post| %>
-	
-	<%= link_to("Post title: " + post.title, {:action => 'show', :id => post.id}) %>
+<!-- <%= link_to("Add new Post",{:action => 'new'}) %>
 
-	<h3>Post Content: <%= post.content %></h3>
-	<h3>Post Image: <%= post.image %></h3>
-	<h3>Post Likes count: <%= post.likes_count %></h3>
-	<h3>Post Comments count:  <%= post.comment_count %></h3>
-	<h3>Category: <%= link_to(post.categories.first.name , {:controller => 'categories', :action => 'show', :id => post.categories.first.id}) %></h3>
-	<h3>Author: <%= link_to(post.editor.first_name, {:controller => 'editors', :action => 'show', :id => post.editor.id}) %></h3>
+<table>
+  <tr>
+    <th>&nbsp;</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Image</th>
+    <th>Likes count</th>
+    <th>Comments count</th>
+    <th>Category</th>
+    <th>Author</th>
+  </tr>
+  <% @posts.each do |post| %>
+  <tr>
+    <td>&nbsp;</td>
+    <td><%= link_to(post.title, {:action => 'show', :id => post.id}) %></td>
+    <td><%= post.content %></td>
+    <td><%= image_tag post.image.url(:thumb) %></td>
+    <td><%= post.likes_count %></td>
+    <td><%= post.comment_count %></td>
+    <td>
+      <% post.categories.each do |cat| %>
+        <%= link_to(cat.name , {:controller => 'categories', :action => 'show', :id => cat.id}) %>
+      <% end %>
+    </td>
+    <td><%= link_to(post.editor.first_name, {:controller => 'editors', :action => 'show', :id => post.editor.id}) %></td>
+  </tr>
+  <% end %>
+</table> -->
 
-<% end %>
+<% post = Post.find(8) %>
 
 <!-- Slider Begins here! -->
 
       <div class="top-news row">
         <div class="new-sec new-1 col l5">
           <div class="shadow"></div>
-          <img src="img/new1.png"> <!-- random image -->
+          <%= image_tag post.image.url %> <!-- random image -->
           <div class="caption left-align col l8">
-            <span><a href="#" class="new-type-1">Sport</a></span><br>
-            <a href="#"><h5 class="light grey-text text-lighten-3">IT MAY BE THE WORLD'S CLEANEST SPORT</h5></a>
+            <span><a href="#" class="new-type-1"><%= post.categories.first.name %></a></span><br>
+            <a href="#"><h5 class="light grey-text text-lighten-3"><%= post.title %></h5></a>
           </div>         
         </div>
         <div class="new-sec col l3">

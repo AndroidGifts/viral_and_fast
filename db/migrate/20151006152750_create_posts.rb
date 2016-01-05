@@ -4,19 +4,17 @@ class CreatePosts < ActiveRecord::Migration
     	t.integer "editor_id"
 
     	t.text "title"
-    	t.string "permalink"
     	t.text "content"
-    	t.string "image"
     	t.text "excerpt"
+      t.attachment "image"
     	t.boolean "visible", :default => true
-    	t.string "type"
-    	t.integer "likes_count"
-    	t.integer "comment_count"
+    	t.string "post_type"
+    	t.integer "likes_count", :default => 0
+    	t.integer "comment_count", :default => 0
 
      	t.timestamps null: false
     end
     add_index("posts", "editor_id")
-    add_index("posts", "permalink")
   end
 
   def down

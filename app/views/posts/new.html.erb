@@ -4,5 +4,12 @@
 	<%= form.text_field :title %>
 	<%= form.text_field :content %>
 	<%= form.file_field :image %>
+	
+	<ul>
+	<% Category.all.each do |category| %>
+		<li> <%= check_box_tag  "post_categories[]", category.id %> <%= category.name %>  </li>
+	<% end %>
+	</ul>
+
 	<%= form.submit %>
 <% end %>

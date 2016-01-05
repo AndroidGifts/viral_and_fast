@@ -2,16 +2,25 @@ class CategoriesController < ApplicationController
   layout false
   
   def index
+    @categories = Category.all
   end
 
   def show
+    @category = Category.find(params[:id])
   end
 
   def new
+    @new_category = Category.new()
   end
 
   def create
-    
+    @new_category = Category.new(category_params)
+
+    if @new_category.save
+      redirect_to(:action => 'index')
+    else
+      render('new')
+    end
   end
 
   def edit
@@ -22,4 +31,10 @@ class CategoriesController < ApplicationController
 
   def delete
   end
+
+  private
+  def category_params
+    params.require(:category).permit(:name, :description, :image)
+  end
+
 end

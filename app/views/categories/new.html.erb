@@ -1,2 +1,9 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<h1>Add New Category</h1>
+
+<%= form_for(:category, :url => {:action => 'create'}, html: { multipart: true }) do |form| %>
+	<%= form.text_field :name %>
+	<%= form.text_field :description %>
+	<%= form.file_field :image %>
+	
+	<%= form.submit %>
+<% end %>

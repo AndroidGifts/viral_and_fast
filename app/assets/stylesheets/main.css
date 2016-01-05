@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: blackjack;
-    src: url('/black_jack.ttf');
+    src: url(../font/black_jack.ttf);
 }
 
 @font-face {
     font-family: HelveticaNeue;
-    src: url('/HelveticaNeue.otf');
+    src: url(/HelveticaNeue.otf);
 }
 
 body{
