@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  layout false
+  layout 'default'
   
   def index
     @categories = Category.all

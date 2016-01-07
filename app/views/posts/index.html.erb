@@ -1,80 +1,61 @@
-<!-- <%= link_to("Add new Post",{:action => 'new'}) %>
+<%
+  slider_posts = @posts.limit(5)
 
-<table>
-  <tr>
-    <th>&nbsp;</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Image</th>
-    <th>Likes count</th>
-    <th>Comments count</th>
-    <th>Category</th>
-    <th>Author</th>
-  </tr>
-  <% @posts.each do |post| %>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%= link_to(post.title, {:action => 'show', :id => post.id}) %></td>
-    <td><%= post.content %></td>
-    <td><%= image_tag post.image.url(:thumb) %></td>
-    <td><%= post.likes_count %></td>
-    <td><%= post.comment_count %></td>
-    <td>
-      <% post.categories.each do |cat| %>
-        <%= link_to(cat.name , {:controller => 'categories', :action => 'show', :id => cat.id}) %>
-      <% end %>
-    </td>
-    <td><%= link_to(post.editor.first_name, {:controller => 'editors', :action => 'show', :id => post.editor.id}) %></td>
-  </tr>
-  <% end %>
-</table> -->
+  hot_left_posts = @posts.limit(2).offset(5)
 
-<% post = Post.find(8) %>
+  hot_right_posts = @posts.limit(5).offset(7)
+
+  other_left_posts = @posts.odd.offset(12)
+
+  other_right_posts = @posts.even.offset(12) 
+
+  sidebar_posts = @posts.most_liked.limit(10)
+%>
 
 <!-- Slider Begins here! -->
 
       <div class="top-news row">
         <div class="new-sec new-1 col l5">
           <div class="shadow"></div>
-          <%= image_tag post.image.url %> <!-- random image -->
+          <%= image_tag slider_posts[0].image.url %> <!-- random image -->
           <div class="caption left-align col l8">
-            <span><a href="#" class="new-type-1"><%= post.categories.first.name %></a></span><br>
-            <a href="#"><h5 class="light grey-text text-lighten-3"><%= post.title %></h5></a>
-          </div>         
+            <span><a href="#" class="new-type-1"><%= slider_posts[0].categories.first.name %></a></span><br>
+            <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[0].title, {:action => 'show', :id => slider_posts[0].id}) %></h5></a>
+          </div>
         </div>
         <div class="new-sec col l3">
           <div class="new-2 col l12">
             <div class="shadow"></div>
-            <img src="img/new2.png"> <!-- random image -->
+            <%= image_tag slider_posts[1].image.url %> <!-- random image -->
             <div class="caption left-align col l9">
-              <span><a href="#" class="new-type-2">Fun</a></span><br>
-              <a href="#"><h5 class="light grey-text text-lighten-3">IT MAY BE THE WORLD'S CLEANEST SPORT</h5></a>
-            </div>        
+              <span><a href="#" class="new-type-2"><%= slider_posts[1].categories.first.name %></a></span><br>
+              <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[1].title, {:action => 'show', :id => slider_posts[1].id}) %></h5></a>
+            </div>
           </div>
           <div class="new-3 col l12">
             <div class="shadow"></div>
-            <img src="img/new3.png"> <!-- random image -->
+            <%= image_tag slider_posts[2].image.url %> <!-- random image -->
             <div class="caption left-align col l9">
-              <span><a href="#" class="new-type-3">Food</a></span><br>
-              <a href="#"><h5 class="light grey-text text-lighten-3">IT MAY BE THE WORLD'S CLEANEST SPORT</h5></a>
+              <span><a href="#" class="new-type-3"><%= slider_posts[2].categories.first.name %></a></span><br>
+              <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[2].title, {:action => 'show', :id => slider_posts[2].id}) %></h5></a>
             </div>         
           </div>         
         </div>
         <div class="new-sec col l4">
           <div class="new-4 col l12">
             <div class="shadow"></div>
-            <img src="img/new4.png"> <!-- random image -->
+            <%= image_tag slider_posts[3].image.url(:large) %> <!-- random image -->
             <div class="caption left-align col l7">
-              <span><a href="#" class="new-type-4">Travel</a></span><br>
-              <a href="#"><h5 class="light grey-text text-lighten-3">IT MAY BE THE WORLD'S CLEANEST SPORT</h5></a>
+              <span><a href="#" class="new-type-4"><%= slider_posts[3].categories.first.name %></a></span><br>
+              <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[3].title, {:action => 'show', :id => slider_posts[3].id}) %></h5></a>
             </div>         
           </div>
           <div class="new-5 col l12">
             <div class="shadow"></div>
-            <img src="img/new5.png"> <!-- random image -->
+            <%= image_tag slider_posts[4].image.url %> <!-- random image -->
             <div class="caption left-align col l7">
-              <span><a href="#" class="new-type-5">ice cream</a></span><br>
-              <a href="#"><h5 class="light grey-text text-lighten-3">IT MAY BE THE WORLD'S CLEANEST SPORT</h5></a>
+              <span><a href="#" class="new-type-5"><%= slider_posts[4].categories.first.name %></a></span><br>
+              <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[4].title, {:action => 'show', :id => slider_posts[4].id}) %></h5></a>
             </div>         
           </div>        
         </div>
@@ -91,184 +72,54 @@
               <h5 class="h-sec"><i class="small material-icons">play_arrow</i>&nbsp;&nbsp;Hot Articles</h5>
               
               <!-- big-card -->
+              
+              <% hot_left_posts.each do |post| %>
 
               <div class="card medium">
                 <div class="card-image">
-                  <img src="img/new3.png">
+                  <%= image_tag post.image.url %>
                 </div>
                   
                 <div class="card-content">
                   <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                  <a class="like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i><br><span class="no-of-likes">200</span></a>
-                  <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                  <a href="#"><h6 class="author">Mishari Rashid</h6></a>
+                  <a class="like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i><br><span class="no-of-likes"><%= post.likes_count %></span></a>
+                  <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                  <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %> </h6></a>
                 </div>
 
                 <div class="card-action">
                   <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                  <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                  <a href="#" class="read-more">read more<i class="fa fa-angle-right"></i></a>
+                  <a class="comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
+                  <a href="#" class="read-more">Read More!<i class="fa fa-angle-right"></i></a>
                 </div>
               </div>
-
               <!-- end of big-card -->
-
-              <!-- big-card -->
-
-              <div class="card medium">
-                <div class="card-image">
-                  <img src="img/new4.png">
-                </div>
-                  
-                <div class="card-content">
-                  <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                  <a class="like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i><br><span class="no-of-likes">200</span></a>
-                  <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                  <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                </div>
-
-                <div class="card-action">
-                  <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                  <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                  <a href="#" class="read-more">read more<i class="fa fa-angle-right"></i></a>
-                </div>
-              </div>
-
-              <!-- end of big-card -->
+              <% end %>
 
               <!-- videos scroll -->
 
               <div class="videos">
                 <h5 class="video-scroll-title">VIDEOS TITLE</h5>
                 <ul class="video-scroll">
+                  
+                  <% hot_right_posts.each do |post| %>
                   <li>
                     <div class="row valign-wrapper">
                       <div class="col s3">
-                        <a href="#"><img src="img/pic2.png" alt="" class="responsive-img"></a>
+                        <%= image_tag post.image.url, :class => "responsive-img" %>
                         </div>
                       <div class="col s9">
                         <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
+                          <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                          <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
                           <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
+                          <a class="comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
                           <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
                         </span>
                       </div>
                     </div>
                   </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/tab3.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/tab4.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/pic2.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/tab3.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/tab4.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/pic2.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li><hr>
-                  <li>
-                    <div class="row valign-wrapper">
-                      <div class="col s3">
-                        <a href="#"><img src="img/tab3.png" alt="" class="responsive-img"></a>
-                        </div>
-                      <div class="col s9">
-                        <span class="black-text">
-                          <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                          <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                          <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                          <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                          <a class="video-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
+                  <% end %>
                 </ul>
               </div>
 
@@ -276,79 +127,48 @@
 
               <div class="row">
                 <div class="col s7">
+                
+                  <% slider_posts.each do |post| %>
 
                   <div class="card small">
                     <div class="card-image">
-                      <img src="img/new4.png">
+                      <%= image_tag post.image.url %>
                     </div>
                       
                     <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
+                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes"><%= post.likes_count %></span></a>
+                      <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                      <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
                     </div>
 
                     <div class="card-action">
                       <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
+                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
                     </div>
                   </div>
 
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="img/card2.png">
-                    </div>
-                      
-                    <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </div>
-
-                    <div class="card-action">
-                      <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                    </div>
-                  </div>
-
+                  <% end %>
                 </div>
 
                 <div class="col s5">
-
+                  <% hot_right_posts.each do |post| %>
                   <div class="card small">
                     <div class="card-image">
-                      <img src="img/new5.png">
+                      <%= image_tag post.image.url %>
                     </div>
                       
                     <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
+                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes"><%= post.likes_count %></span></a>
+                      <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                      <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
                     </div>
 
                     <div class="card-action">
                       <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
+                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
                     </div>
                   </div>
-
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="img/card2.png">
-                    </div>
-                      
-                    <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </div>
-
-                    <div class="card-action">
-                      <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                    </div>
-                  </div>
-
+                  <% end %>
                 </div>
 
               </div>  
@@ -360,176 +180,54 @@
             <!-- mid-section 1 -->
 
             <div class="row col m5 mid-section-1">
+
+              <% hot_right_posts.each do |post| %>
+
               <div class="row col m12">
-
                 <div class="card small tiny">
-
                   <div class="card-image">
-                    <img src="img/card2.png">
+                    <%= image_tag post.image.url %>
                   </div>
                         
                   <div class="card-content">
-                    <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                    <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
+                    <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes"><%= post.likes_count %></span></a>
+                    <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
                     <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                    <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="row col m12">
-
-                <div class="card small tiny">
-
-                  <div class="card-image">
-                    <img src="img/tab3.png">
-                  </div>
-                        
-                  <div class="card-content">
-                    <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                    <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                    <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                    <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="row col m12">
-
-                <div class="card small tiny">
-
-                  <div class="card-image">
-                    <img src="img/tab1.png">
-                  </div>
-                        
-                  <div class="card-content">
-                    <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                    <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                    <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                    <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <!-- video-card -->
-
-              <div class="row col l12">
-                <div class="card medium video-card">
-                  <div class="video-container">
-                    <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                    
-                  <div class="card-content">
-                    <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                    <a class="like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                    <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                    <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                    <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                  </div>
-                </div>
-
-                <div class="card medium video-card">
-                  <div class="video-container">
-                    <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                    
-                  <div class="card-content">
-                    <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                    <a class="like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                    <a href="#"><h5 class="card-title">VIDEO TITLE</h5></a>
-                    <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    <a class="views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                    <a class="comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
+                    <a class="mini-comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
                   </div>
                 </div>
               </div>
 
-              <!-- end of video-card --> 
+              <% end %>
 
               <div class="row">
+
+                <% 2.times do %>
                 <div class="col m6">
+                  
+                  <% hot_right_posts.each do |post| %>
 
                   <div class="card small">
                     <div class="card-image">
-                      <img src="img/card2.png">
+                      <%= image_tag post.image.url(:medium) %>
                     </div>
                       
                     <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
+                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes"><%= post.likes_count %></span></a>
+                      <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                      <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
                     </div>
 
                     <div class="card-action">
                       <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
+                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
                     </div>
                   </div>
 
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="img/new4.png">
-                    </div>
-                      
-                    <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </div>
-
-                    <div class="card-action">
-                      <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                    </div>
-                  </div>
+                  <% end %>
 
                 </div>
-
-                <div class="col m6">
-
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="img/new5.png">
-                    </div>
-                      
-                    <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </div>
-
-                    <div class="card-action">
-                      <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                    </div>
-                  </div>
-
-                  <div class="card small">
-                    <div class="card-image">
-                      <img src="img/card2.png">
-                    </div>
-                      
-                    <div class="card-content">
-                      <a class="mini-like-icon" href="#"><i class="fa fa-heart-o"></i><br><span class="no-of-likes">200</span></a>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </div>
-
-                    <div class="card-action">
-                      <a class="mini-views" href="#"><i class="fa fa-eye"></i>3122 views</a>
-                      <a class="mini-comments" href="#"><i class="fa fa-comment"></i>21 comments</a>
-                    </div>
-                  </div>
-
-                </div>
-
+                <% end %>
               </div>  
 
             </div>
@@ -552,7 +250,7 @@
                       <div class="col s3">
                         <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                       </div>
-                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                      <a href="#"><p class="col s9">Viral and fast fun</p></a>
                     </div>
                   </li>
                   <li class="linkedIn row  col s12">
@@ -560,7 +258,7 @@
                       <div class="col s3">
                         <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
                       </div>
-                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                      <a href="#"><p class="col s9">Viral and fast fun</p></a>
                     </div>
                   </li>
                   <li class="twitter row  col s12">
@@ -568,7 +266,7 @@
                       <div class="col s3">
                         <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                       </div>
-                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                      <a href="#"><p class="col s9">Viral and fast fun</p></a>
                     </div>
                   </li>            
                   <li class="google row  col s12">
@@ -576,7 +274,7 @@
                       <div class="col s3">
                         <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
                       </div>
-                      <a href="#"><p class="col s9" class="col s9">iral and fast fun</p></a>
+                      <a href="#"><p class="col s9" class="col s9">Viral and fast fun</p></a>
                     </div>
                   </li>
                   <li class="instgram row col s12">
@@ -584,7 +282,7 @@
                       <div class="col s3">
                         <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
                       </div>
-                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                      <a href="#"><p class="col s9">Viral and fast fun</p></a>
                     </div>
                   </li>
                 </ul>
@@ -595,95 +293,25 @@
             <div class="row">
 
               <h5 class="h-sec"><i class="small material-icons">play_arrow</i>&nbsp;&nbsp;Hotest Articles</h5>
+              
+              <% sidebar_posts.each do |post| %>
+
               <div class="card-panel recent grey lighten-5 z-depth-1">
                 <div class="row valign-wrapper">
                   <div class="col s4">
-                    <img src="img/tab1.png" alt="" class="responsive-img">
+                    <%= image_tag post.image.url, :class => "responsive-img" %>
                     </div>
                   <div class="col s8">
                     <span class="black-text">
-                      <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
+                      <span class="card-section"><a href="#" class="type"><%= post.categories.first.name %></a></span><br>
+                      <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                      <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div class="card-panel recent grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                  <div class="col s4">
-                    <img src="img/tab2.png" alt="" class="responsive-img">
-                    </div>
-                  <div class="col s8">
-                    <span class="black-text">
-                      <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-panel recent grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                  <div class="col s4">
-                    <img src="img/tab3.png" alt="" class="responsive-img">
-                    </div>
-                  <div class="col s8">
-                    <span class="black-text">
-                      <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-panel recent grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                  <div class="col s4">
-                    <img src="img/tab4.png" alt="" class="responsive-img">
-                    </div>
-                  <div class="col s8">
-                    <span class="black-text">
-                      <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-panel recent grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                  <div class="col s4">
-                    <img src="img/tab1.png" alt="" class="responsive-img">
-                    </div>
-                  <div class="col s8">
-                    <span class="black-text">
-                      <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-panel recent grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                  <div class="col s4">
-                    <img src="img/tab2.png" alt="" class="responsive-img">
-                    </div>
-                  <div class="col s8">
-                    <span class="black-text">
-                      <span class="card-section"><a href="#" class="type">Fun</a></span><br>
-                      <a href="#"><h5 class="card-title">WHAT IS LOREM IPSUM?</h5></a>
-                      <a href="#"><h6 class="author">Mishari Rashid</h6></a>
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <% end %>
 
             </div>
 

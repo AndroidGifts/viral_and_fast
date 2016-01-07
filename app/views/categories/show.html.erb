@@ -1,2 +1,131 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<%
+  cat_posts = @category.posts.recent
+  sidebar_posts = @category.posts.most_liked.limit(4)
+
+%>
+
+      <div class="container">
+        
+        <div class="row col s12">
+
+          <div class="row col m12 main-content">
+
+            <!--left-section 1 -->
+
+            <div class="row col m9 left-section">
+
+              <div class="row col m12">
+                
+                <!--3 times here-->
+                <% cat_posts.each do |post| %>
+                <div class="col s4">
+                  <div class="card small single tiny">
+
+                    <div class="card-image">
+                      <%= image_tag post.image.url %>
+                    </div>
+                        
+                    <div class="card-content">
+                      <a href="#"><h5 class="card-title"><%= link_to(post.title, {:controller => 'posts', :action => 'show', :id => post.id}) %></h5></a>
+                      <a class="video-card-share-icon" href="#"><i class="fa fa-share-alt fa-lg"></i></a>
+                      <a class="video-card-like-icon" href="#"><i class="fa fa-heart-o fa-lg"></i></a>
+                    </div>
+
+                  </div>
+
+                </div>
+                <% end %>
+              </div> 
+
+            </div>
+
+            <!--end of left-section 1 -->
+
+            <!-- mid-section 1 -->
+
+            <div class="row col m3 mid-section">
+
+              <!-- social-feeds -->
+              <h5 class="social-title">Connect With Viral and fast fun</h5>
+              <div class="row">
+                <ul class="single social-list">
+                  <li class="facebook row col s12">
+                    <div class="col s12">
+                      <div class="col s3">
+                        <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+                      </div>
+                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                    </div>
+                  </li>
+                  <li class="linkedIn row  col s12">
+                    <div class="col s12">
+                      <div class="col s3">
+                        <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
+                      </div>
+                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                    </div>
+                  </li>
+                  <li class="twitter row  col s12">
+                    <div class="col s12">
+                      <div class="col s3">
+                        <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                      </div>
+                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                    </div>
+                  </li>            
+                  <li class="google row  col s12">
+                    <div class="col s12">
+                      <div class="col s3">
+                        <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+                      </div>
+                      <a href="#"><p class="col s9" class="col s9">iral and fast fun</p></a>
+                    </div>
+                  </li>
+                  <li class="instgram row col s12">
+                    <div class="col s12">
+                      <div class="col s3">
+                        <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+                      </div>
+                      <a href="#"><p class="col s9">iral and fast fun</p></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- end of social-feeds -->
+              
+
+              <div class="row">
+
+              <h5 class="h-sec"><i class="small material-icons">play_arrow</i>&nbsp;&nbsp;Hotest Articles</h5>
+              
+              <% sidebar_posts.each do |post| %>
+
+              <div class="card-panel recent grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                  <div class="col s4">
+                    <%= image_tag post.image.url, :class => "responsive-img" %>
+                    </div>
+                  <div class="col s8">
+                    <span class="black-text">
+                      <span class="card-section"><a href="#" class="type"><%= post.categories.first.name %></a></span><br>
+                      <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
+                      <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <% end %>
+
+            </div>
+
+            </div>
+
+            <!-- end of mid-section 1 -->
+
+          </div>
+
+          <!-- end of main-content -->
+
+        </div>

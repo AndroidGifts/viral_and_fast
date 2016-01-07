@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   layout 'default'
 
   def index
-    @posts = Post.all
+    @posts = Post.visible.recent
   end
 
   def show
