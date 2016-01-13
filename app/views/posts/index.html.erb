@@ -28,7 +28,7 @@
             <div class="shadow"></div>
             <%= image_tag slider_posts[1].image.url %> <!-- random image -->
             <div class="caption left-align col l9">
-              <span><a href="#" class="new-type-2"><%= slider_posts[1].categories.first.name %></a></span><br>
+              <span><a href="#" class="new-type-2"><%= slider_posts[0].categories.first.name %></a></span><br>
               <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[1].title, {:action => 'show', :id => slider_posts[1].id}) %></h5></a>
             </div>
           </div>
@@ -36,7 +36,7 @@
             <div class="shadow"></div>
             <%= image_tag slider_posts[2].image.url %> <!-- random image -->
             <div class="caption left-align col l9">
-              <span><a href="#" class="new-type-3"><%= slider_posts[2].categories.first.name %></a></span><br>
+              <span><a href="#" class="new-type-3"><%= slider_posts[0].categories.first.name %></a></span><br>
               <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[2].title, {:action => 'show', :id => slider_posts[2].id}) %></h5></a>
             </div>         
           </div>         
@@ -46,7 +46,7 @@
             <div class="shadow"></div>
             <%= image_tag slider_posts[3].image.url(:large) %> <!-- random image -->
             <div class="caption left-align col l7">
-              <span><a href="#" class="new-type-4"><%= slider_posts[3].categories.first.name %></a></span><br>
+              <span><a href="#" class="new-type-4"><%= slider_posts[0].categories.first.name %></a></span><br>
               <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[3].title, {:action => 'show', :id => slider_posts[3].id}) %></h5></a>
             </div>         
           </div>
@@ -54,7 +54,7 @@
             <div class="shadow"></div>
             <%= image_tag slider_posts[4].image.url %> <!-- random image -->
             <div class="caption left-align col l7">
-              <span><a href="#" class="new-type-5"><%= slider_posts[4].categories.first.name %></a></span><br>
+              <span><a href="#" class="new-type-5"><%= slider_posts[0].categories.first.name %></a></span><br>
               <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[4].title, {:action => 'show', :id => slider_posts[4].id}) %></h5></a>
             </div>         
           </div>        
@@ -303,7 +303,7 @@
                     </div>
                   <div class="col s8">
                     <span class="black-text">
-                      <span class="card-section"><a href="#" class="type"><%= post.categories.first.name %></a></span><br>
+                      <span class="card-section"><a href="#" class="type">category name</a></span><br>
                       <a href="#"><h5 class="card-title"><%= link_to(post.title, {:action => 'show', :id => post.id}) %></h5></a>
                       <a href="#"><h6 class="author"><%= post.editor.first_name + " " + post.editor.last_name %></h6></a>
                     </span>

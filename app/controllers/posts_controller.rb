@@ -20,17 +20,14 @@ class PostsController < ApplicationController
     #Attach an editor to the post
     post_editor = Editor.first
 
-    #Getting all the checkboxes values sent from 'New' form
-    post_categories_ids = params[:post_categories]
+    #Getting post category
+    post_category = params[:post_category]
 
     if @new_post.save
 
       #Attach the editor and categories to the post
       post_editor.posts << @new_post
-      post_categories_ids.each do |cat_id|
-        category = Category.find_by_id(cat_id)
-        @new_post.categories << category
-      end
+      @new_post.categories << Category.find(post_category)
 
       redirect_to(:action => 'index')
     else

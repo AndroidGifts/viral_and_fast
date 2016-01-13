@@ -1,15 +1,37 @@
-<h1>Add New Post</h1>
+<div class="container" style="margin-bottom: 100px;">
+	<h2>Add New Post</h2>
 
-<%= form_for(:post, :url => {:action => 'create'}, html: { multipart: true }) do |form| %>
-	<%= form.text_field :title %>
-	<%= form.text_field :content %>
-	<%= form.file_field :image %>
-	
-	<ul>
-	<% Category.all.each do |category| %>
-		<li> <%= check_box_tag  "post_categories[]", category.id %> <%= category.name %>  </li>
+	<%= form_for(:post, :url => {:action => 'create'}, html: { multipart: true }) do |form| %>
+		<div class="row">
+			<div class="input-field col s6">
+				<%= form.text_field :title %><br>
+				<%= form.label :title %><br>
+			</div>
+
+			<div class="input-field col s6">	
+				<%= select_tag "post_category", options_from_collection_for_select(Category.all, "id", "name"), {include_blank: 'Select a Category'} %>
+			</div>
+		</div>
+
+		<div class="input-field">
+			<%= form.text_area :content, id: "wysiwyg" %><br>
+			<%= form.label :content %><br>
+		</div>
+
+		<%= form.label :image %><br>
+		<%= form.file_field :image %><br>
+		
+		<div class="input-field">
+			<%= form.submit :class => 'btn' %>
+		</div>
 	<% end %>
-	</ul>
 
-	<%= form.submit %>
-<% end %>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+	    $(document).ready(function () {
+	    	$('#wysiwyg').froalaEditor({
+	    		heightMin: 200
+	    	})
+		});
+	</script>
+</div>

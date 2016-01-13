@@ -1,28 +1,3 @@
-<!-- <h3><%= @single_post.title %></h3>
-
-<h3>Post Content: <%= @single_post.content %></h3>
-<h3>Post Image: <%= @single_post.image %></h3>
-<h3>Post Likes count: <%= @single_post.likes_count %></h3>
-<h3>Post Comments count:  <%= @single_post.comments.count %></h3>
-<h3>Category: <%= link_to(@single_post.categories.first.name , {:controller => 'categories', :action => 'show', :id => @single_post.categories.first.id}) %></h3>
-<h3>Author: <%= link_to(@single_post.editor.first_name, {:controller => 'editors', :action => 'show', :id => @single_post.editor.id}) %></h3>
-
-
-<h2>Comments: </h2>
-<% @single_post.comments.each do |comment| %>
-
-<h4><%= comment.content %>, by <%= link_to(comment.editor.first_name, {:controller => 'editors', :action => 'show', :id => comment.editor.id}) %></h4>
-
-<% end %>
-
-<%= form_for(:comment, :url => {:controller => 'comments', :action => 'create', :post_id => @single_post.id}) do |f| %>
-  
-  <%= f.text_field(:content) %>
-
-  <%= submit_tag("Comment") %>
-
-<% end %>  -->
-
 <% sidebar_posts = Post.all.most_liked.limit(5) %>
 
 <div class="container">
@@ -43,13 +18,17 @@
                 <div class="article-image">
                   <%= image_tag @single_post.image.url %>
                 </div>
+
+                <div class="fr-view">
+                  <%= simple_format(@single_post.content) %>
+                </div>
                     
-                <div class="article-content">
-                  <div class="article-text">
-                    <p class="info"><%= @single_post.content %></p>
+                <!-- <div class="article-content">
+                  <div class="article-text fr-view">
+                    <%= @single_post.content %>
                     <a class="waves-effect waves-light btn share-btn"><i class="fa fa-share-alt fa-2x"></i>SHARE</a>
                   </div>
-                </div>
+                </div> -->
             
               </div>
 
