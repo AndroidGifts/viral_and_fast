@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :editors
   root "posts#index"
 
   resources :posts do
