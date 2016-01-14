@@ -1,3 +1,7 @@
+.fr-popup .fr-checkbox-line label {
+    position: initial !important;
+}
+
 select {
     display: initial !important;
 }

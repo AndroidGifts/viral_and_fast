@@ -17,7 +17,7 @@
 			<%= form.text_area :content, id: "wysiwyg" %><br>
 			<%= form.label :content %><br>
 		</div>
-
+		
 		<%= form.label :image %><br>
 		<%= form.file_field :image %><br>
 		
@@ -25,13 +25,4 @@
 			<%= form.submit :class => 'btn' %>
 		</div>
 	<% end %>
-
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script>
-	    $(document).ready(function () {
-	    	$('#wysiwyg').froalaEditor({
-	    		heightMin: 200
-	    	})
-		});
-	</script>
 </div>
