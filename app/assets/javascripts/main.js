@@ -1,3 +1,20 @@
+$(document).ready(function(){
+	
+	$(".button-collapse").sideNav();
+	$('.slider').slider();
+	$('.tooltipped').tooltip({delay: 0});
+
+	$('.like-icon').click(function() {
+		$(this).css('background-color','#cc1526');
+	});
+
+	$('.watch-icon').click(function() {
+		$(this).css('background-color','#cc1526');
+	});
+	
+});
+
+
 window.fbAsyncInit = function() {
 	FB.init({
 		appId      : '461668747344455',
@@ -21,9 +38,3 @@ $(document).ready(function () {
       $('#preview').html(editor.html.get());
     }).froalaEditor('html.get');
 });
-
-$( document ).ready(function(){
-	$(".button-collapse").sideNav();
-	$('.slider').slider();
-	$('ul.tabs').tabs();
-})

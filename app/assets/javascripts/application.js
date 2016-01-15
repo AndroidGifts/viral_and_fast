@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require flowtype
 //= require materialize.min
 //= require main
 //= require froala_editor.min.js

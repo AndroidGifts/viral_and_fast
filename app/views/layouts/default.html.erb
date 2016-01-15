@@ -24,28 +24,14 @@
       <!-- Navigation Menu -->
       <nav class="navbar top-nav">
         <div class="nav-wrapper container">
-          <a href="#" data-activates="mobile-demo-1" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul id="nav-mobile" class="right">
             <li><a href="#">About us</a></li>
-            <li><a href="#">contact us</a>
+            <li><a href="#">Contact us</a>
               <ul>
-                <li><a href="#"><i class="fa fa-facebook fa-2x"><span>Facebook</span></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter fa-2x"><span>Twitter</span></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus fa-2x"><span>Google+</span></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube fa-2x"><span>Youtube</span></i></a></li>
+                <li><a href="https://twitter.com/ViralAndFast"><i class="fa fa-facebook fa-2x"><span>Facebook</span></i></a></li>
+                <li><a href="https://twitter.com/ViralAndFast"><i class="fa fa-twitter fa-2x"><span>Twitter</span></i></a></li>
+                <li><a href="https://www.linkedin.com/company/viral-and-fast"><i class="fa fa-linkedin fa-2x"><span>LinkedIn</span></i></a></li>
               </ul>
-            </li>
-          </ul>
-
-          <ul class="side-nav" id="mobile-demo-1">
-            <li><a href="#">About us</a></li>
-            <li><a href="#">contact us</a>
-              <ul>
-                <li><a href="#"><i class="fa fa-facebook fa-2x"><span>Facebook</span></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter fa-2x"><span>Twitter</span></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus fa-2x"><span>Google+</span></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube fa-2x"><span>Youtube</span></i></a></li>
-            </ul>
             </li>
           </ul>
         </div>
@@ -58,96 +44,34 @@
 
           <ul id="nav-mobile" class="center right hide-on-med-and-down">
             <li><%= link_to("Home", {:controller => 'posts', :action => 'index'}) %></li>
-            <!-- <li><a href="#">Sections</a>
-              <ul class="container row">
-                <li class="col l4 img">
-                  <a href="#"><img class="section-img" src="img/pic2.png"><h5 class="img-title">IT MAY BE THE WORLD'S CLEANEST SPORT</h5></a>
-                </li>
-                <li class="col l4 featured">
-                  <h4>FEATURED ARTICLES :</h4><hr>
-                  <ul class="scrollable-menu featured-atricles" role="menu">
-                    <li>
-                      <a href="#">
-                        <div class="col l12 media">
-                          <div class="col l3 media-left">
-                            <img class="media-image" src="img/dum-rect.png">
-                          </div>
-                          <div class="col l9">
-                            <p class="media-body">IT MAY BE THE WORLD'S CLEANEST SPORT</p>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="col l12 media">
-                          <div class="col l3 media-left">
-                            <img class="media-image" src="img/dum-rect.png">
-                          </div>
-                          <div class="col l9">
-                            <p class="media-body">IT MAY BE THE WORLD'S CLEANEST SPORT</p>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="col l4 browse">
-                  <h4>BROWSE BY :<hr></h4>
-                  <ul class="scrollable-menu browse-by" role="menu">
-                    <li>
-                      <a href="#">
-                        <div class="col l12 media">
-                          <div class="col l3 media-left">
-                            <img class="media-image" src="img/dum-rect.png">
-                          </div>
-                          <div class="col l9">
-                            <p class="media-body">IT MAY BE THE WORLD'S CLEANEST SPORT</p>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="col l12 media">
-                          <div class="col l3 media-left">
-                            <img class="media-image" src="img/dum-rect.png">
-                          </div>
-                          <div class="col l9">
-                            <p class="media-body">IT MAY BE THE WORLD'S CLEANEST SPORT</p>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </li>  
-              </ul>
-            </li>  -->
-            <li><%= link_to("Fun", {:controller => 'categories', :action => 'show', :id => 1}) %></li>
-            <li><%= link_to("Food", {:controller => 'categories', :action => 'show', :id => 3}) %></li>
-            <li><%= link_to("Sport", {:controller => 'categories', :action => 'show', :id => 2}) %></li>
-            <li><%= link_to("Travel", {:controller => 'categories', :action => 'show', :id => 4}) %></li>
+            
+            <% Category.all.each do |category| %>
+            <li><%= link_to(category.name, {:controller => 'categories', :action => 'show', :id => category.id}) %></li>
+            <% end %>
 
             <ul class="right sign-up">
-              <li><a href="#"><i class="material-icons">search</i></a></li>
-              <li><a href="#"><span>Sign in</span></a></li>
-              <li><a href="#"><i class="fa fa-user"><span>Sign up</span></i></a></li>
+              <!-- <li><a href="#"><i class="material-icons">search</i></a></li> -->
+              <% if editor_signed_in? %>
+                <li><%= link_to "Add Post", {:controller => 'posts', :action => 'new'} %></li>
+              <% else %>
+                <li><%= link_to "Sign In", {:controller => 'editors', :action => 'sign_in'} %></li>
+              <% end %>
+              
+              <!-- <li><a href="#"><span>Sign up</span></a></li> -->
             </ul>
 
           </ul>
 
           <ul class="side-nav" id="mobile-demo-2">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Sections</a></li>
-            <li><a href="#">Fun</a></li>
-            <li><a href="#">Food</a></li>
-            <li><a href="#">Sport</a></li>
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">travel</a></li>
-            <li><a href="#">Health&Beauty</a></li>
-            <li><a href="#"><i class="material-icons">search</i></a></li>
+            <li><%= link_to("Home", {:controller => 'posts', :action => 'index'}) %></li>
+            
+            <% Category.all.each do |category| %>
+            <li><%= link_to(category.name, {:controller => 'categories', :action => 'show', :id => category.id}) %></li>
+            <% end %>
+            
+            <!-- <li><a href="#"><i class="material-icons">search</i></a></li> -->
             <li><a href="#"><span>Sign in</span></a></li>
-            <li><a href="#"><i class="fa fa-user"><span>Sign up</span></i></a></li>
+            <!-- <li><a href="#"><span>Sign up</span></a></li> -->
           </ul>
         </div>
       </nav>
@@ -158,8 +82,10 @@
         
       </div> -->
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="container">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+      </div>
 
       <%= yield %>
 

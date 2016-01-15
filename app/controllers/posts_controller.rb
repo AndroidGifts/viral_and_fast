@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_editor!, except: [:index, :show]
+
   layout 'default'
 
   def index
@@ -18,7 +20,7 @@ class PostsController < ApplicationController
     @new_post = Post.new(post_params)
 
     #Attach an editor to the post
-    post_editor = Editor.first
+    post_editor = current_editor
 
     #Getting post category
     post_category = params[:post_category]

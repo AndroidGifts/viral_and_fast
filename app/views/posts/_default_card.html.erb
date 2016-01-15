@@ -1,0 +1,20 @@
+<!-- card -->
+<div class="col l4 m6 s12">
+  <div class="card small">
+      <div class="card-image">
+          <%= link_to image_tag(post.image.url, :class => "responsive-img"), {:action => 'show', :id => post.id} %>
+          <span class="card-section"><%= link_to(post_category.name, {:controller => 'categories', :action => 'show', :id => post_category.id}, :class => 'type') %></span>
+          <a data-position="left" data-delay="0" data-tooltip="<%= post.likes_count %> likes" class="like-icon tooltipped" href="#"><i class="fa fa-heart-o"></i></a>
+          <a data-position="left" data-delay="0" data-tooltip="share" class="share-icon tooltipped" href="#"><i class="fa fa-share-alt"></i></a>
+          <a data-position="left" data-delay="0" data-tooltip="watch later" class="watch-icon tooltipped" href="#"><i class="fa fa-clock-o"></i></a>
+      </div>
+      <div class="card-content">
+        <a href="/posts/<%= post.id %>"><p class="card-title"><%= post.title %></p></a>
+      </div>
+      <div class="card-action">
+          <a class="views" href="#"><i class="fa fa-eye"></i>3122 Views</a>
+          <a class="comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
+          <!-- <a class="author" href="#"><i class="fa fa-user"></i>marie david</a> -->
+  </div>
+</div>
+<!-- end of card -->

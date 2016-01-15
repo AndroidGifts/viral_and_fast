@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+  
+  before_action :authenticate_editor!, except: [:show]
+
   layout 'default'
   
   def index
