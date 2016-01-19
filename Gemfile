@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip", "~> 4.3"
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem "wysiwyg-rails"
 gem 'devise', '~> 3.5', '>= 3.5.3'
 
