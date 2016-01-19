@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 	belongs_to :editor
 	has_and_belongs_to_many :categories
 
-	has_attached_file :image, styles: { large: "600x600", medium: "300x200>", thumb: "200x200>"}
+	has_attached_file :image, styles: { large: "800x800", medium_card: "460x360", normal_card: "300x160>", small_card: "140x140>"}
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	scope :posts_of_week, lambda {where(:created_at => 1.week.ago..Time.now)}

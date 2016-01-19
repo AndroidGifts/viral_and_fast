@@ -1,7 +1,7 @@
 <div class="card-panel recent z-depth-1">
   <div class="row valign-wrapper">
     <div class="image">
-      <%= link_to image_tag(post.image.url, :class => "responsive-img"), {:action => 'show', :id => post.id} %>
+      <%= link_to image_tag(post.image.url(:normal_card), :class => "responsive-img"), {:action => 'show', :id => post.id} %>
       <a data-position="right" data-delay="0" data-tooltip="<%= post.likes_count %> likes" class="like-icon tooltipped" href="#"><i class="fa fa-heart-o"></i></a>
       <a data-position="right" data-delay="0" data-tooltip="share" class="share-icon tooltipped" href="#"><i class="fa fa-share-alt"></i></a>
       <a data-position="right" data-delay="0" data-tooltip="watch later" class="watch-icon tooltipped" href="#"><i class="fa fa-clock-o"></i></a>
