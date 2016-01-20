@@ -1,3 +1,7 @@
+.card.small img.responsive-img {
+    min-height: 200px;
+}
+
 .card.small .card-image, .card.medium .card-image, .card.large .card-image {
     max-height: 65% !important;
 }
@@ -690,7 +694,7 @@ a.watch-icon {
 .recent img.responsive-img {
     height: 100%;
     width: auto;
-    max-width: none !important;
+    /*max-width: none !important;*/
     /*left: -35%;*/
     border-radius: 2px;
     position: relative;
