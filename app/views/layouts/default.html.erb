@@ -17,6 +17,8 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <%= csrf_meta_tags %>
     </head>
 
     <body>
@@ -40,7 +42,7 @@
       <nav class="main-menu">
         <div class="nav-wrapper container">
         <a href="#" data-activates="mobile-demo-2" class="button-collapse"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo"><%= image_tag('logo.png', :alt => 'logo') %></a>
+          <%= link_to image_tag('logo.png', :alt => 'logo'), {:controller => 'posts', :action => 'index'}, :class => "brand-logo" %>
 
           <ul id="nav-mobile" class="center right hide-on-med-and-down">
             <li><%= link_to("Home", {:controller => 'posts', :action => 'index'}) %></li>

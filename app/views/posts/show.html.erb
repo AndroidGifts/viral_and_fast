@@ -6,10 +6,17 @@
           <div class="row col l8 m8 article left-section">
 
             <div class="row col l12 article-header">
-              <h5 class="article-title"><%= @single_post.title %></h5>
+              <h5 class="article-title"><%= @post.title %></h5>
               <a class="article-views" href="#"><i class="fa fa-eye"></i><%= Random.rand(10...42) %> Views</a>
-              <a class="article-comments" href="#"><i class="fa fa-comment"></i><%= @single_post.comments.count %> Comments</a>
+              <a class="article-comments" href="#"><i class="fa fa-comment"></i><%= @post.comments.count %> Comments</a>
             </div>
+
+            <% if @post.editor == current_editor %>
+            <div class="row col l12 post-controllers">
+              <%= link_to "Edit Post", {:action => 'edit', :id => @post.id}, :class => 'btn' %>
+              <%= link_to( "Delete Post", post_path(@post), :class => 'btn', method: :delete, data: {confirm: 'Are you sure?'} ) %>
+            </div>
+            <% end %>
 
             <div class="col m12 share-row">
 
@@ -27,7 +34,7 @@
                 <div class="article-text">
                   
                   <div class="fr-view">
-                  <%= simple_format(@single_post.content) %>
+                    <%= @post.content.html_safe %>
                   </div>
 
                 </div>
@@ -38,7 +45,7 @@
             <div class="row col m12 discussion">
               <h6>DISCUSSION</h6>
 
-              <% @single_post.comments.each do |comment| %>
+              <% @post.comments.each do |comment| %>
               <div class="row disc">
 
                 <div class="col s11">
@@ -50,7 +57,7 @@
               <% end %>
             </div>
 
-            <%= form_for(:comment, :url => {:controller => 'comments', :action => 'create', :post_id => @single_post.id}) do |f| %>
+            <%= form_for(:comment, :url => {:controller => 'comments', :action => 'create', :post_id => @post.id}) do |f| %>
               
               <%= f.text_field(:content, :placeholder => "Add a comment") %>
               <%= submit_tag("Comment", :class => 'btn') %>

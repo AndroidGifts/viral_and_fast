@@ -32,7 +32,7 @@ end
 
 group :development do
 	# Use mysql as the database for Active Record
-	gem 'mysql2', '~> 0.3.18'
+	gem 'sqlite3'
 end
 
 group :production do

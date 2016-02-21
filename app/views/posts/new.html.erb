@@ -2,37 +2,6 @@
 	<h2>Add New Post</h2>
 
 	<%= form_for(:post, :url => {:action => 'create'}, html: { multipart: true }) do |form| %>
-		<% if @new_post.errors.any? %>
-			<div id="errors col s6">
-				<h3><%= pluralize(@new_post.errors.count, "error") %> prevented this post from saving.</h3>
-				<ul>
-					<% @new_post.errors.full_messages.each do |msg| %>
-						<li><%= msg %></li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-		<div class="row">
-			<div class="input-field col s6">
-				<%= form.text_field :title, :required => true %><br>
-				<%= form.label :title %><br>
-			</div>
-
-			<div class="input-field col s6">	
-				<%= select_tag "post_category", options_from_collection_for_select(Category.all, "id", "name"), {include_blank: 'Select a Category', :required => true} %>
-			</div>
-		</div>
-
-		<div class="input-field">
-			<%= form.text_area :content, id: "wysiwyg" %><br>
-			<%= form.label :content %><br>
-		</div>
-		
-		<%= form.label :image %><br>
-		<%= form.file_field :image, :required => true %><br>
-		
-		<div class="input-field">
-			<%= form.submit :class => 'btn' %>
-		</div>
+		<%= render :partial => "shared/form_post", :locals => {:form => form} %>
 	<% end %>
 </div>
