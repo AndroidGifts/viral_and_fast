@@ -680,7 +680,7 @@ a.watch-icon {
 }
 
 .medium .card-image img {
-    width: auto;
+    width: 100%;
     height: 101%;
 }
 
