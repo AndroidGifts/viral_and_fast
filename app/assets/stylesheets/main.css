@@ -14,6 +14,7 @@ select {
     display: initial !important;
 }
 
+
 /* Fonts */
 @font-face {
     font-family: blackjack;
@@ -30,6 +31,10 @@ body{
     background-color: #f8f8f8;
 }
 /* end of Fonts */
+
+html,body{
+    height: 100%;
+}
 
 /* styling navbars */
 .top-nav{
@@ -286,7 +291,7 @@ li.col.l4.img{
 }
 
 .media {
-    padding-left: 0 !important;
+    padding: 0 !important;
     margin-top: 14px;
 }
 
@@ -363,6 +368,7 @@ ul::-webkit-scrollbar-thumb {
 .new-4,
 .new-5{
 	padding: 0.5px !important;
+    overflow: hidden;
 }
 
 .new-sec{
@@ -412,8 +418,12 @@ ul::-webkit-scrollbar-thumb {
 }
 
 .top-news img {
-    height: 100%;
-    width: 100%
+    /*height: 100%;*/
+    width: 200%;
+    position: absolute;
+    z-index: -1;
+    top: -15%;
+    left: -30%;
 }
 
 .caption {
@@ -513,14 +523,11 @@ ul::-webkit-scrollbar-thumb {
 }
 
 .card-image{
-    /*max-height: 65% !important;
-    height: 62%;*/
+    
 }
 
 .card-image img {
-    /*width: initial !important;
-    left: -25% !important;
-    top: -25px !important;*/
+    
 }
 
 .card-content{
@@ -620,10 +627,126 @@ a.watch-icon {
 	margin-right: 4px;
 }
 
-/* mini-card styling 
+/* medium-card styling */
+.medium .shadow{
+    z-index: 1;
+}
+
+.medium span.card-section {
+    top: 15px;
+}
+
+.medium a.type {
+    background-color: #cc1526;
+    font-size: 15px;
+    color: #fff;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+
+.medium a.like-icon,
+.medium a.share-icon,
+.medium a.watch-icon{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 15px;
+    right: 6px;
+    background-color: #363636;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 2px;
+    z-index: 1;
+}
+
+.medium a.share-icon {
+    top: 44px;
+    right: 6px;
+}
+
+.medium a.watch-icon {
+    top: 73px;
+    right: 6px;
+}
+
+.medium .card-image{
+    max-height: 90% !important;
+    height: 90%;
+}
+
+.medium .card-image img {
+    width: auto;
+    height: 101%;
+}
+
+.medium .card-title {
+    bottom: 5% !important;
+    font-size: 21px !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    line-height: 24px !important;
+    margin: 0;
+    padding-left: 14px !important;
+    z-index: 1;
+}
+
+.medium .card-title:hover {
+    color: #cd1325 !important;
+}
+
+.medium .card-action {
+    padding: 10px 5px 10px 14px !important;
+    border-top: 1px solid #cc1526;
+}
+
+.medium .card-action a {
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+.medium .card-action .author{
+    color: #757474 !important;
+    float: left;
+}
+
+.medium .card-action .author i{
+    color: #cc1526 !important;
+    font-size: 15px;
+}
+
+.medium .card-action .views{
+    color: #757474 !important;
+    float: left;
+}
+
+.medium .card-action .views i{
+    color: #cc1526 !important;
+    font-size: 15px;
+}
+
+.medium .card-action .comments{
+    color: #757474 !important;
+    float: left;
+}
+
+.medium .card-action .comments i{
+    color: #cc1526 !important;
+    font-size: 15px;
+}
+
+.medium .card-action a i{
+    margin-right: 6px;
+}
+
+/* mini-card styling */
 .card.small {
     height: 260px !important;
-}*/
+}
 
 .small .card-content{
 	padding: 8px !important;
@@ -650,7 +773,7 @@ a.watch-icon {
 
 .small .card-action a {
     font-size: 11px;
-    text-transform: none;
+    text-transform: lowercase;
     margin-right: 8px;
 }
 
@@ -687,15 +810,14 @@ a.watch-icon {
     position: relative;
     overflow: hidden;
     height: 101%;
-    width: 43%;
+    width: 45%;
     padding-right: 0;
 }
 
 .recent img.responsive-img {
     height: 100%;
     width: auto;
-    /*max-width: none !important;*/
-    /*left: -35%;*/
+    max-width: none !important;
     border-radius: 2px;
     position: relative;
 }
@@ -763,7 +885,8 @@ a.watch-icon {
 
 .recent .views,
 .recent .comments {
-    font-size: 11px;
+    font-size: 9px;
+    text-transform: lowercase;
     margin-right: 12px;
 }
 
@@ -792,35 +915,54 @@ a.watch-icon {
 }
 
 .videos {
-    background-color: #252525;
-    padding: 30px 8px 24px 30px;
+    background-color: #fff;
+    padding: 18px 24px 10px 24px;
     border-radius: 3px;
     margin-bottom: 22px;
     margin-top: 0px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .videos .row {
     position: relative;
-    padding-top: 15px;
+    height: 73px;
 }
 
 .videos .row img {
     border-radius: 3px;
-    width: 75px;
-    height: 75px;
+    width: auto;
+    height: 100%;
 }
 
-.video-scroll{
+.videos span.card-section {
+    top: 0px;
+    left: 11px;
+}
+
+ul.video-scroll {
+    margin: 0;
+}
+
+.video-scroll li .col.s4{
+    overflow: hidden;
+    height: 100%;
+}
+
+.video-scroll li .col.s8{
+    height: 100%;
+}
+
+/*.video-scroll{
 	height: auto;
     max-height: 493px;
     overflow-x: hidden!important;
 }
 
-.video-scroll li .col.s3 {
+.video-scroll li .col.s4{
     padding-left: 24px;
 }
 
-.video-scroll li .col.s9 {
+.video-scroll li .col.s8{
     padding-left: 0;
 }
 
@@ -830,41 +972,43 @@ a.watch-icon {
     color: #fff;
     margin-bottom: 36px;
     padding-left: 13px;
-}
+}*/
 
 .video-scroll .views,
-.video-scroll .comments{
-    color: #fff !important;
+.video-scroll .comments,
+.videos .author{
+    color: #757474 !important;
     float: left;
-    font-size: 12px;
-    margin-right: 24px;
-    margin-top: 10px;
+    font-size: 10px;
+    margin-right: 8px;
 }
 
 .video-scroll .views i{
     color: #cc1526 !important;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .video-scroll .comments i{
     color: #cc1526 !important;
-    font-size: 16px;
+    font-size: 10px;
+}
+
+.videos .author i{
+    color: #cc1526 !important;
+    font-size: 10px;
 }
 
 .video-scroll a i{
     margin-right: 6px;
 }
 
-.video-scroll hr {
-    width: 94%;
-    border-color: rgba(80, 80, 80, 0.39);
-}
-
 .videos .card-title {
-    font-size: 18px !important;
+    font-size: 12px !important;
     font-weight: bold !important;
-    color: #fff;
+    color: #000 !important;
     margin-top: 0;
+    width: 92%;
+    margin-bottom: 5px;
 }
 
 .videos .author {
@@ -1173,7 +1317,6 @@ span.activity{
 
 div.container > div > div > div.row.col.l12 {
     padding-right: 36px;
-    padding-left: 15px !important;
 }
 
 .profile.wide a.share-icon {
@@ -1497,7 +1640,7 @@ img.bg-single.health {
 }
 
 .article-header {
-    margin-bottom: 22px;
+    margin-bottom: 10px;
     padding-left: 30px !important;
 }
 
@@ -1535,7 +1678,7 @@ a.article-author {
 }
 
 .share-row {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .article-image {
@@ -1549,37 +1692,39 @@ a.article-author {
 }
 
 .article-text .info {
-    font-family: HelveticaNeue;
-    font-size: 20px;
-    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 18px;
     padding-left: 0 !important;
+    margin-top: 12px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #121212;
 }
 
 .face-btn,
 .twitter-btn,
 .linkedin-btn,
 .google-btn,
-.instgram-btn {
+.stumbleupon-btn,
+.reddit-btn,
+.email-btn {
     float: left;
-    font-size: 11px;
-    font-weight: bold;
+    text-align: center;
     height: 42px;
     padding-top: 3px;
-    padding-left: 18px;
-    text-transform: initial;
     margin-right: 4px;
     margin-top: 10px;
-    width: 126px;
+    width: 88px;
 }
 
 .face-btn i,
 .twitter-btn i,
 .linkedin-btn i,
 .google-btn i,
-.instgram-btn i {
-    margin-right: 12px;
-    vertical-align: middle;
-    float: left;
+.stumbleupon-btn i,
+.reddit-btn i,
+.email-btn i {
+
 }
 
 .face-btn {
@@ -1598,8 +1743,16 @@ a.article-author {
     background-color: #bb0f1f !important;
 }
 
-.instgram-btn {
-    background-color: #252525 !important;
+.stumbleupon-btn {
+    background-color: #EB4823 !important;
+}
+
+.reddit-btn {
+    background-color: #ff5700 !important;
+}
+
+.email-btn {
+    background-color: #444444 !important;
 }
 
 .article.side-content{
@@ -1615,14 +1768,15 @@ a.article-author {
 }
 
 .circle.pic{
-	height: 35px;
-	width: 35px;
-	vertical-align: text-top;
+	height: 28px;
+    width: 28px;
+    border-radius: 14px;
+    vertical-align: text-top;
 }
 
 .discussion h6{
-	margin-bottom: 36px;
-    color: #CACACA;
+	margin-bottom: 22px;
+    color: #a5a9ac;
     font-weight: bold;
 }
 
@@ -1650,6 +1804,20 @@ a.article-author {
 	margin-top: 24px;
 }
 
+#modal-share {
+    border: 2px solid #cc1526;
+    text-align: center;
+}
+
+#modal-share .share-row{
+    display: inline-block;
+}
+
+#modal-share h4 {
+    float: left;
+    color: #a5a9ac;
+}
+
 @media only screen and (min-width: 993px){
 	.container {
 	    width: 85.652% !important;
@@ -1661,8 +1829,50 @@ a.article-author {
 }
 
 @media only screen and (max-width: 993px){
+    .main-menu .row h4 {
+        font-size: 12px;
+    }
+
+    .media-left {
+        display: none;
+    }
+
     .small .card-title {
         font-size: 12px !important;
+    }
+
+    .side-content{
+        display: none;
+    }
+
+    .top-news{
+        height: initial;
+    }
+
+    .new-1{
+        height: 350px;
+    }
+
+    .new-2, .new-3, .new-4, .new-5{
+        height: 240px;
+    }
+
+    .new-1 .caption {
+        left: 5%;
+    }
+
+    .new-2 h5, .new-3 h5, .new-4 h5, .new-5 h5 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .top-news img {
+        /*height: 100%;*/
+        width: 130%;
+        position: relative;
+        z-index: -1;
+        top: initial;
+        left: initial;
     }
 }
 
@@ -1685,12 +1895,20 @@ a.article-author {
         width: 55%;
     }
 
-    .recent img.responsive-img {
-        left: -58%;
-    }   
+    p.media-body {
+        margin-top: 0;
+    }  
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1107px) {
+    .main-menu .row h4 {
+        font-size: 12px;
+    }
+
+    .media-left {
+        display: none;
+    }
+
     .card.small {
         height: 267px !important;
     }
@@ -1705,10 +1923,6 @@ a.article-author {
 
     .recent .row .image {
         width: 60%;
-    }
-
-    .recent img.responsive-img {
-        left: -70%;
     }    
 }
 
@@ -1735,11 +1949,7 @@ a.article-author {
 
     .recent .row .image {
         width: 60%;
-    }
-
-    .recent img.responsive-img {
-        left: -40%;
-    }    
+    }   
 }
 
 @media only screen and (min-width: 601px) and (max-width: 780px) {
@@ -1755,9 +1965,22 @@ a.article-author {
         width: 55%;
     }
 
-    .recent img.responsive-img {
-        left: -80%;
-    }    
+    .medium .card-title {
+        bottom: 11% !important;
+    }
+
+    .videos .card-title {
+        font-size: 11px !important;
+    }
+
+    .video-scroll .views, .video-scroll .comments, .videos .author {
+        font-size: 9px;
+    }
+
+    .video-scroll li .col.s8 {
+        padding-right: 0;
+    }
+
 }
 
 @media only screen and (max-width: 601px) {
@@ -1769,13 +1992,26 @@ a.article-author {
         width: 40%;
     }
 
-    .recent img.responsive-img {
-        left: -10%;
+    .top-news img {
+        /*height: 100%;*/
+        width: 130%;
+        position: relative;
+        z-index: -1;
+        top: initial;
+        left: initial;
+    }
+
+    .top-news{
+        height: initial;
+    }
+
+    .new-1 .caption {
+        left: 5%;
+    }
+
+    .new-1 h5, .new-2 h5, .new-3 h5, .new-4 h5, .new-5 h5 {
+        font-size: 13px;
+        font-weight: 500;
     }    
 }
-
-/*@media only screen and (min-width: 993px) and (max-width: 1360px) {
-    .card.small .card-image{
-        max-height: 51.5% !important;
-    }  
-}*/	
+	

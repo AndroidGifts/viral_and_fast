@@ -8,6 +8,14 @@ class PostsController < ApplicationController
     @posts = Post.visible.recent
   end
 
+  def give_me_posts (main_posts)
+    main_posts.each do |post|
+    post_category = post.categories.first
+      render(:partial => "shared/default_card", :locals => {:post => post, :post_category => post_category})
+    end
+  end
+  helper_method :give_me_posts
+
   def show
   end
 

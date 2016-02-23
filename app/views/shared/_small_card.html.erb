@@ -1,0 +1,15 @@
+<li>
+  <div class="row valign-wrapper">
+    <div class="col s4">
+      <%= link_to image_tag(post.image.url(:normal_card), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => post.id} %>
+      <span class="card-section"><%= link_to(post_category.name, {:controller => 'categories', :action => 'show', :id => post_category.id}, :class => 'type') %></span>
+    </div>
+    <div class="col s8">
+      <span class="black-text">
+        <a href="/posts/<%= post.id %>"><p class="card-title"><%= post.title %></p></a>
+        <a class="views" href="#"><i class="fa fa-eye"></i><%= Random.rand(100...1000) %> Views</a>
+        <a class="comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a></i></a>
+      </span>
+    </div>
+  </div>
+</li>

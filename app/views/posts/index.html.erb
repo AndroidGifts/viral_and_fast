@@ -3,6 +3,9 @@
 
   main_posts = @posts.offset(5)
 
+  # represens the number of main blocks to be added in the main container
+  blocks_counter = main_posts.count / 11
+
   sidebar_posts = @posts.most_liked
 %>
       <% if slider_posts.count == 5 %>
@@ -66,19 +69,41 @@
         <div class="row col l12 m12 s12">
           <!-- MAIN CONTENT START -->
           <div class="col l9 m8 s12 main-content">
-            <h5 class="h-sec"><i class="small material-icons">play_arrow</i>&nbsp;&nbsp;Hot Articles</h5>
+            
+            <% blocks_counter.times do %>
+
+            <% posts_arr = main_posts[0..10] %>
             <div class="row">
-                <%if main_posts.count > 0
-                  #check if there are more posts
-                  main_posts.each do |post|
-                  post_category = post.categories.first %>
-
-                  <%= render(:partial => "shared/default_card", :locals => {:post => post, :post_category => post_category}) %>
-
-                  <% end #loop end %>
-                <% end #if end %>
+              <% 6.times do |i| 
+                post_category = posts_arr[i].categories.first %>
+                <%= render(:partial => "shared/default_card", :locals => {:post => posts_arr[i], :post_category => post_category}) %>
+              <% end %>
             </div>
+
+            <div class="row">
+              <%= render(:partial => "shared/big_card", :locals => {:post => posts_arr[6], :post_category => posts_arr[6].categories.first}) %>
+              <div class="col l6 m6 s12">
+                <div class="videos">
+                  <ul class="video-scroll">
+                    <% 4.times do |i| 
+                      post_category = posts_arr[i].categories.first %>
+                      <%= render(:partial => "shared/small_card", :locals => {:post => posts_arr[i], :post_category => post_category}) %>
+                    <% end %>
+                  </ul>
+                </div>
+                <!-- end of videos div -->
+              </div>
+            </div>
+            
+            <% 11.times do |i| 
+              main_posts.to_a.delete_at(i) 
+              end %>
+
+            <% end %>
+
           </div>
+
+      
           <!-- MAIN CONTENT END -->
 
           <!-- SIDEBAR START -->
@@ -105,4 +130,5 @@
           <!-- SIDEBAR END -->
 
         </div>
-      </div>
+
+        <%= render(:partial => "shared/modal_share") %>

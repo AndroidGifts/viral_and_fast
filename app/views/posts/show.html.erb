@@ -3,7 +3,7 @@
       <div class="article container">
         
         <div class="row col l12 m12 s12">
-          <div class="row col l8 m8 article left-section">
+          <div class="row col l8 m12 article left-section">
 
             <div class="row col l12 article-header">
               <h5 class="article-title"><%= @post.title %></h5>
@@ -20,11 +20,17 @@
 
             <div class="col m12 share-row">
 
-              <a class="waves-effect waves-light btn face-btn"><i class="fa fa-facebook fa-2x"></i>Facebook</a>
-              <a class="waves-effect waves-light btn twitter-btn"><i class="fa fa-twitter fa-2x"></i>Twitter</a>
-              <a class="waves-effect waves-light btn linkedin-btn"><i class="fa fa-linkedin fa-2x"></i>Linkedin</a>
-              <a class="waves-effect waves-light btn google-btn"><i class="fa fa-google-plus fa-2x"></i>Google+</a>
-              <a class="waves-effect waves-light btn instgram-btn"><i class="fa fa-instagram fa-2x"></i>Instgram</a>
+              <a href="http://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank" class="waves-effect waves-light btn face-btn"><i class="fa fa-facebook fa-2x"></i></a>
+              
+              <a href="http://twitter.com/share?url=<%= request.original_url %>&text=<%= @post.title %>via=<USERNAME>" target="_blank" class="waves-effect waves-light btn twitter-btn"><i class="fa fa-twitter fa-2x"></i></a>
+              
+              <a href="http://www.linkedin.com/shareArticle?url=<%= request.original_url %>&title=<%= @post.title %>&summary=<%= @post.title %>&source=<%= request.original_url %>" target="_blank" class="waves-effect waves-light btn linkedin-btn"><i class="fa fa-linkedin fa-2x"></i></a>
+              
+              <a href="https://plus.google.com/share?url=<%= request.original_url %>" target="_blank" class="waves-effect waves-light btn google-btn"><i class="fa fa-google-plus fa-2x"></i></a>
+              
+              <a href="http://www.stumbleupon.com/submit?url=<%= request.original_url %>&title=<%= @post.title %>" target="_blank" class="waves-effect waves-light btn stumbleupon-btn"><i class="fa fa-stumbleupon fa-2x"></i></a>
+              
+              <a href="http://reddit.com/submit?url=<%= request.original_url %>&title=<TITLE>" target="_blank" target="_blank" class="waves-effect waves-light btn reddit-btn"><i class="fa fa-reddit fa-2x"></i></a>
 
             </div>
 
@@ -42,7 +48,7 @@
             
             </div>
 
-            <div class="row col m12 discussion">
+            <div class="row col m11 discussion">
               <h6>DISCUSSION</h6>
 
               <% @post.comments.each do |comment| %>
@@ -74,7 +80,7 @@
             <div class="row hotest">
               <h5 class="h-sec"><i class="small material-icons">play_arrow</i>&nbsp;&nbsp;Hotest Articles</h5>
 
-              <%if sidebar_posts.count > 0
+              <% if sidebar_posts.count > 0
                 #check if there are more posts
                 sidebar_posts.each do |post|
                 post_category = post.categories.first %>
@@ -92,3 +98,5 @@
         </div>
 
       </div>
+
+      <%= render(:partial => "shared/modal_share") %>

@@ -3,7 +3,7 @@
     <div class="image">
       <%= link_to image_tag(post.image.url(:small_card), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => post.id} %>
       <a data-position="right" data-delay="0" data-tooltip="<%= post.likes_count %> likes" class="like-icon tooltipped" href="#"><i class="fa fa-heart-o"></i></a>
-      <a data-position="right" data-delay="0" data-tooltip="share" class="share-icon tooltipped" href="#"><i class="fa fa-share-alt"></i></a>
+      <a data-position="right" data-delay="0" data-tooltip="share" class="share-icon tooltipped modal-trigger" href="#modal-share"><i class="fa fa-share-alt"></i></a>
       <a data-position="right" data-delay="0" data-tooltip="watch later" class="watch-icon tooltipped" href="#"><i class="fa fa-clock-o"></i></a>
     </div>
     <div class="content">
