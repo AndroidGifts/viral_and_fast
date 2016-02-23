@@ -9,7 +9,7 @@
     <div class="content">
       <span class="black-text">
         <span class="card-section"><%= link_to(post_category.name, {:controller => 'categories', :action => 'show', :id => post_category.id}, :class => 'type') %></span>
-        <a href="/posts/<%= post.id %>"><p class="card-title"><%= post.title %></p></a>
+        <a href="/posts/<%= post.id %>"><p class="card-title">Post Title</p></a>
         <a class="views" href="#"><i class="fa fa-eye"></i><%= Random.rand(10...42) %> Views</a>
         <a class="comments" href="#"><i class="fa fa-comment"></i><%= post.comment_count %> Comments</a>
       </span>
