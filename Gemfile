@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.7'
+gem 'pg'
 
 gem 'rails', '4.2.4'
 
@@ -20,6 +21,8 @@ gem 'aws-sdk', '< 2.0'
 gem "wysiwyg-rails"
 gem 'devise', '~> 3.5', '>= 3.5.3'
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -36,7 +39,7 @@ group :development do
 end
 
 group :production do
-	gem 'pg'
+	
 	gem 'rails_12factor'
 end
 
