@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 ruby '2.1.7'
-gem 'pg'
 
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
@@ -29,11 +28,11 @@ end
 
 group :development do
 	# Use mysql as the database for Active Record
-	gem 'sqlite3'
+	#gem 'sqlite3'
 end
 
 group :production do
-	
+	gem 'pg'
 	gem 'rails_12factor'
 end
 
