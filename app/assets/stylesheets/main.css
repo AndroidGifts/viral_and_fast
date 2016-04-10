@@ -413,11 +413,11 @@ ul::-webkit-scrollbar-thumb {
 }
 
 .top-news img {
-    width: 210%;
+    /*width: 210%;*/
     position: absolute;
     z-index: -1;
-    top: -15%;
-    left: -30%;
+    /**top: -15%;*/
+    /*left: -30%;*/
 }
 
 .caption {

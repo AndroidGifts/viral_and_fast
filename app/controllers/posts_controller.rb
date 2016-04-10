@@ -52,6 +52,7 @@ class PostsController < ApplicationController
     post_category = params[:post_category]
 
     if @post.update(post_params)
+      @post.categories.clear
       @post.categories << Category.find(post_category)
 
       redirect_to post_path(@post)

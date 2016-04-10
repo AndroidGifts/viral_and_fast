@@ -13,7 +13,8 @@
       <div class="top-news row container">
         <div class="new-sec new-1 col l5 m12 s12">
           <div class="shadow"></div>
-          <%= image_tag slider_posts[0].image.url %>
+          <%= link_to image_tag(slider_posts[0].image.url(:large), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => slider_posts[0].id} %>
+
           <div class="caption left-align col l10 m8 s8">
             
             <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[0].title, {:action => 'show', :id => slider_posts[0].id}) %></h5></a>
@@ -22,7 +23,8 @@
         <div class="new-sec col l4 m12 s12">
           <div class="new-2 col l12 m6 s12">
             <div class="shadow"></div>
-            <%= image_tag slider_posts[1].image.url %>
+            <%= link_to image_tag(slider_posts[1].image.url(:medium_card), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => slider_posts[1].id} %>
+
             <div class="caption left-align col l9 m12 s9">
             
             <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[1].title, {:action => 'show', :id => slider_posts[1].id}) %></h5></a>
@@ -30,7 +32,8 @@
           </div>
           <div class="new-3 col l12 m6 s12">
             <div class="shadow"></div>
-            <%= image_tag slider_posts[2].image.url %>
+            <%= link_to image_tag(slider_posts[2].image.url(:medium_card), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => slider_posts[2].id} %>
+
             <div class="caption left-align col l9 m12 s9">
               
             <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[2].title, {:action => 'show', :id => slider_posts[2].id}) %></h5></a>
@@ -40,7 +43,8 @@
         <div class="new-sec col l3 m12 s12">
           <div class="new-4 col l12 m6 s12">
             <div class="shadow"></div>
-            <%= image_tag slider_posts[3].image.url %>
+            <%= link_to image_tag(slider_posts[3].image.url(:medium_card), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => slider_posts[3].id} %>
+
             <div class="caption left-align col l12 m12 s9">
               
             <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[3].title, {:action => 'show', :id => slider_posts[3].id}) %></h5></a>
@@ -48,7 +52,7 @@
           </div>
           <div class="new-5 col l12 m6 s12">
             <div class="shadow"></div>
-            <%= image_tag slider_posts[4].image.url %>
+            <%= link_to image_tag(slider_posts[4].image.url(:medium_card), :class => "responsive-img"), {:controller => 'posts', :action => 'show', :id => slider_posts[4].id} %>
             <div class="caption left-align col l12 m12 s9">
               
             <a href="#"><h5 class="light grey-text text-lighten-3"><%= link_to(slider_posts[4].title, {:action => 'show', :id => slider_posts[4].id}) %></h5></a>
